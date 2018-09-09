@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="/Users/lauren/workspace/BangazonERD.db" foreign_keys="1"/><window><current_tab id="0"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="1541"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="Computers"/><default_encoding codec=""/><browsetable_info data="AAAAAgAAABQAQwBvAG0AcAB1AHQAZQByAHMAMQAAAAAAAAAAAAAAAAAAAAAAAAAAAP//////////AAAAAP////8AAAASAEMAbwBtAHAAdQB0AGUAcgBzAAAAAQAAAAEAAAAAAAAAAgAAAAIAAAAAAAAAAQAAAAAAAAAAAP//////////AAAAAP////8="/></tab_browse><tab_sql><sql name="BangazonERD.sql">CREATE TABLE `Employees` (
+	`EmployeeId`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+	`DepartmentId`	INTEGER NOT NULL,
+	`FirstName`	TEXT NOT NULL,
+	`LastName`	TEXT NOT NULL,
+	`Supervisor`	TEXT NOT NULL
+);
+CREATE TABLE `TrainingPrograms` (
+`TrainingProgramId` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+`StartDate` INTEGER NOT NULL,
+`EndDate` INTEGER NOT NULL,
+`MaximumAttendees`  INTEGER NOT NULL
+);
+CREATE TABLE `Departments` (
+`DepartmentId` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+`ExpenseBudget` INTEGER NOT null
+);
+CREATE TABLE `Computers` (
+	`ComputerId`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+	`PurchaseDate`	INTEGER NOT NULL,
+	`DecommissionDate`	INTEGER,
+	`AssignmentStartDate`	INTEGER,
+	`AssignmentEndDate`	INTEGER
+);
+CREATE TABLE `EmpTrainingPrograms` (
+	`EmpTrainingProgramId`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+	`EmployeeId`	INTEGER NOT NULL,
+	`TrainingProgramId`	INTEGER NOT NULL
+);
+CREATE TABLE `EmployeeComputers` (
+	`EmpComputerId`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+	`EmployeeId`	INTEGER NOT NULL,
+	`ComputerId`	INTEGER NOT NULL
+);
+CREATE TABLE `Products` (
+`ProductId` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+`CustomerId` INTEGER NOT NULL ,
+`Title` TEXT NOT NULL,
+`Price` DOUBLE NOT NULL,
+`Description` TEXT NOT NULL,
+`Qty` INTEGER NOT null
+);
+CREATE TABLE `PaymentTypes` (
+`PaymentTypeId` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+`CustomerId` INTEGER NOT NULL,
+`PaymentName` TEXT NOT NULL,
+`AccountNumber` INTEGER NOT NULL 
+);
+CREATE TABLE `Customers` (
+`CustomerId` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+`FirstName` TEXT NOT NUll,
+`LastName` TEXT NOT NULL,
+`RegistrationDate` INTEGER NOT NULL,
+`LastLoginDate` INTEGER NOT NULL 
+);
+CREATE TABLE `ProductOrder` (
+`ProductOrderId` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+`ProductId` INTEGER NOT NULL,
+`OrderId` INTEGER NOT null
+);
+CREATE TABLE `Orders` (
+`OrderId` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+`CustomerId` INTEGER NOT NULL,
+`PaymentTypeId` INTEGER NOT NULL
+);
+CREATE TABLE `Product Types` (
+`ProductTypeId` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+`Name` STRING NOT NULL
+);
+CREATE TABLE `Computers` (
+`ComputerId` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+`PurchaseDate` STRING NOT NULL,
+`DecommissionDate` STRING,
+`AssignmentStartDate` STRING,
+`AssignmentEndDate` STRING
+);
+INSERT INTO `Computers` (
+VALUES (null, '2015-09-01', null, null, null);
+);
+
+
+`</sql><current_tab id="0"/></tab_sql></sqlb_project>
